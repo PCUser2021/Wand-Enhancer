@@ -57,3 +57,18 @@ This repository patches the Wand Electron app from a .NET Framework WPF desktop 
 - Web panel build: `cd web-panel && pnpm run build` (runs type-check, Vite build, then `build:bridge` into `dist`).
 - Bridge/script syntax checks after build: `node --check web-panel/dist/bridge.cjs` and `node --check web-panel/dist/renderer-scripts/remote-popup-cleanup.js`.
 - Production dist should contain only static assets and should not contain `mock-instance`, `Mock Adventure`, `Simulation`, `Debug session`, `mock=1`, `demo-session`, `vite.svg`, `tailwind-merge`, `class-variance-authority`, or `clsx`.
+
+
+## Cross-Session Prompt Archive and Recovery (Required)
+
+This repository is **public**. Never place verbatim user prompts, private chat text, credentials, personal details, or private debug data in this repository.
+
+- Central private prompt archive: `PCUser2021/ResolverReach`, file `PROMPT_ARCHIVE.md`: https://github.com/PCUser2021/ResolverReach/blob/main/PROMPT_ARCHIVE.md
+- Before handling **any user prompt related to this repository** (including questions, bug reports, feature requests, corrections, review requests, build/release requests, and requests that result in no code change), attempt to read the newest private archive entries. Restore project context from the archive, this `AGENTS.md`, `README.md`, the current source tree, and relevant commit/CI history.
+- Before substantive work, append the exact user prompt to the private archive, tagged with this repository and a date. Capture all repo-related prompts, not only prompts that change source. Redact credentials/tokens/private keys and unrelated sensitive personal information. Never put the raw prompt in this public repository.
+- After responding or making changes, add a separate outcome entry to the private archive. It must state actions actually taken, files/commit SHAs, checks actually run, results, and unresolved work. Do not claim logging succeeded until the private commit and content are verified.
+- For non-sensitive implementation summaries that affect this repository, append an entry to `AI_WORK_LOG.md` in this public repository. Keep the entry safe for public disclosure and do not reproduce verbatim prompts.
+- If the private archive cannot be accessed or written, explicitly tell the user and provide a ready-to-commit prompt/outcome entry. Do not claim that context was restored or a prompt archived when it was not.
+- On every new repository-related session, restore requirements from the private archive and repository source; do not make the user repeat facts that are documented there. Current source and Git history override stale summaries.
+- “Restore” means restoring **context and task state**. Never automatically reset or overwrite source code to an older commit; destructive rollback requires explicit user approval.
+- Tool limitation: these instructions do not create a ChatGPT-wide message-event hook. They govern AI sessions that load this file and have permission to access the private archive. Do not claim guaranteed automatic capture across conversations that do not load these instructions.
