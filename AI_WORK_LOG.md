@@ -16,3 +16,8 @@ This log records non-sensitive summaries of repository maintenance performed wit
 - Required durable requirements and implementation findings to be written to repository documentation/logs; verbatim user prompts remain in the private central archive and are not copied here.
 - This was an instructions-only change; shipped software was not changed and its product version was not incremented.
 - Verification: GitHub API write results will be confirmed by reading the updated files. No build/runtime tests were run because no product code changed.
+
+
+### Verification follow-up — 2026-10-22
+- Read back `AGENTS.md` from `master` and confirmed the mandatory version-bump/changelog rule and persistent-knowledge/archive rule are present (blob `6dc15b096486ff3720682bb8bb272e0ed872e7b6`).
+- This was documentation-only; product code and product versions were unchanged. No build/runtime tests were run.
