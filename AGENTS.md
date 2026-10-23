@@ -72,3 +72,22 @@ This repository is **public**. Never place verbatim user prompts, private chat t
 - On every new repository-related session, restore requirements from the private archive and repository source; do not make the user repeat facts that are documented there. Current source and Git history override stale summaries.
 - “Restore” means restoring **context and task state**. Never automatically reset or overwrite source code to an older commit; destructive rollback requires explicit user approval.
 - Tool limitation: these instructions do not create a ChatGPT-wide message-event hook. They govern AI sessions that load this file and have permission to access the private archive. Do not claim guaranteed automatic capture across conversations that do not load these instructions.
+
+
+## Mandatory Software Versioning and Knowledge Persistence
+
+### Version every shipped software update
+- For every task that changes this product's shipped source, runtime behavior, UI, dependencies, assets, configuration, packaging, or executable output, bump the product version. Do not ship distinct updates under an unchanged version number.
+- Follow the existing product convention; use SemVer when suitable: patch for fixes, minor for compatible features, major for breaking changes.
+- Keep version metadata synchronized across project files, assembly/file metadata, About/header UI, installer/workflow settings, tags/releases, and documentation. Search for stale hard-coded version strings.
+- Update `CHANGELOG.md` for every shipped software update, with version/date, changes, compatibility notes, and known limitations. If a changelog does not exist for a product, create one.
+- Build and test the intended version; inspect the actual output/version metadata. Never claim a release/artifact is available unless verified.
+- Documentation-only, archival, or instructions-only commits that do not change the shipped product do not require a product-version bump. Do not change versions of upstream third-party dependencies unless actually upgrading them.
+
+### Keep knowledge in the repositories
+- Before substantive work, archive the full repository-related user prompt in the private central archive: https://github.com/PCUser2021/ResolverReach/blob/main/PROMPT_ARCHIVE.md . Redact credentials and secrets. Never put verbatim prompts or sensitive details in this public repo.
+- Restore relevant context by reading the private archive (when available), this `AGENTS.md`, README, current source, changelog, current commits and applicable CI/test logs.
+- Persist new durable requirements, design decisions, discoveries, bug causes, failed approaches, environment findings, and unfinished work in the relevant repo documentation or context file. Do not leave critical knowledge only in chat.
+- After completing work, append an outcome record to the private archive and add a non-sensitive summary to `AI_WORK_LOG.md`; update `CHANGELOG.md` when the shipped software changes. Record exact files, commit references, checks actually performed/results, artifact links, and unresolved items.
+- Verify repository writes; never claim knowledge was saved unless the resulting commit/content can be read back.
+- These are repository instructions, not a ChatGPT-wide event hook. They cannot guarantee that every prompt is captured in sessions that never load the instructions or cannot access the private archive.
